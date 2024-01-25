@@ -1,4 +1,4 @@
-name: Configs Tar
+name: Fail
 
 on:
   workflow_dispatch:
