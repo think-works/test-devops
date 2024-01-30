@@ -27,7 +27,8 @@ jobs:
       - run: echo "Success Build ${{ inputs.version_id }} ${{ inputs.product }} ${{ inputs.name }} ${{ inputs.version }}"
 
       - name: Push Tag
-        uses: think-works/add-and-commit@main
+        uses: ncipollo/release-action@v1
         with:
+          commit: ${{ github.sha }}
           tag: 'v${{ inputs.version }}'
-          tag_push: '--force'
+          body: 'Release v${{ inputs.version }}'
