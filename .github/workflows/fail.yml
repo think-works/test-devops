@@ -27,3 +27,9 @@ jobs:
       - run: |
           echo "Fail Build ${{ inputs.version_id }} ${{ inputs.product }} ${{ inputs.name }} ${{ inputs.version }}"
           tar zxvf not_exist.tar.gz
+      - name: Push Tag
+        uses: ncipollo/release-action@v1
+        with:
+          commit: ${{ github.sha }}
+          tag: 'v${{ inputs.version }}'
+          body: 'Release v${{ inputs.version }}'
