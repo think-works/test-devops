@@ -29,6 +29,7 @@ jobs:
       - name: Push Tag
         uses: ncipollo/release-action@v1
         with:
+          allowUpdates: true
           commit: ${{ github.sha }}
           tag: 'v${{ inputs.version }}'
           body: 'Release v${{ inputs.version }}'
