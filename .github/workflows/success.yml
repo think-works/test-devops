@@ -26,7 +26,7 @@ jobs:
 
       - run: |
           mkdir ${{ inputs.name }}
-          cp -r ./* ${{ inputs.name }}
+          cp ./test* ${{ inputs.name }}
           tar zcvf ${{ inputs.name }}.tar.gz ${{ inputs.name }}
           echo "Success Build ${{ inputs.version_id }} ${{ inputs.product }} ${{ inputs.name }} ${{ inputs.version }}"
 
