@@ -25,9 +25,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - run: |
-          mkdir ${{ inputs.name }}
-          cp ./iteration* ${{ inputs.name }}
-          tar zcvf ${{ inputs.name }}.tar.gz ${{ inputs.name }}
+          tar zcvf ${{ inputs.name }}.tar.gz test1
           echo "Success Build ${{ inputs.version_id }} ${{ inputs.product }} ${{ inputs.name }} ${{ inputs.version }}"
 
       - name: Upload To Oss
