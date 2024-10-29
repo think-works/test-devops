@@ -24,24 +24,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - run: |
-          tar zcvf ${{ inputs.name }}.tar.gz test1
-          echo "Success Build ${{ inputs.version_id }} ${{ inputs.product }} ${{ inputs.name }} ${{ inputs.version }}"
-
-      - name: Upload To Oss
-        uses: think-works/upload-to-oss@main
-        with:
-          version_id: ${{ inputs.version_id }}
-          product: ${{ inputs.product }}
-          name: ${{ inputs.name }}
-          version: ${{ inputs.version }}
-          arch: noarch
-          file_name: ${{ inputs.name }}.tar.gz
-
+      - run: echo "Success Build ${{ inputs.version_id }} ${{ inputs.product }} ${{ inputs.name }} ${{ inputs.version }}"
+      
       - name: Push Tag
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
           commit: ${{ github.sha }}
-          tag: 'v${{ inputs.version }}'
-          body: 'Release v${{ inputs.version }}'
+          tag: v${{ inputs.version }}
+          body: Release v${{ inputs.version }}
